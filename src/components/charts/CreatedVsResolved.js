@@ -16,33 +16,31 @@ const styles = {
 
 class CreatedVsResolved extends Component {
   state = {
-    data: [],
     createdMax: 0
   };
 
+  static defaultProps = {
+    data: [
+      { date: "Day 1", created: 3, resolved: 1 },
+      { date: "Day 2", created: 15, resolved: 4 },
+      { date: "Day 3", created: 20, resolved: 20 },
+      { date: "Day 4", created: 30, resolved: 30 },
+      { date: "Day 5", created: 50, resolved: 38 },
+      { date: "Day 6", created: 90, resolved: 50 },
+      { date: "Day 7", created: 120, resolved: 90 }
+    ]
+  };
+
   componentWillMount() {
-    this.setState(
-      {
-        data: [
-          { date: "Day 1", created: 3, resolved: 1 },
-          { date: "Day 2", created: 15, resolved: 4 },
-          { date: "Day 3", created: 20, resolved: 20 },
-          { date: "Day 4", created: 30, resolved: 30 },
-          { date: "Day 5", created: 50, resolved: 38 },
-          { date: "Day 6", created: 90, resolved: 50 },
-          { date: "Day 7", created: 120, resolved: 90 }
-        ]
-      },
-      () => {
-        this.setState({
-          createdMax: Math.max(...this.state.data.map(d => d.created))
-        });
-      }
-    );
+    const { data } = this.props;
+    this.setState({
+      createdMax: Math.max(...data.map(d => d.created))
+    });
   }
 
   render() {
-    const { createdMax, data } = this.state;
+    const { createdMax } = this.state;
+    const { data } = this.props;
     return (
       <div style={styles.container}>
         <h3>Created vs Resolved Chart</h3>

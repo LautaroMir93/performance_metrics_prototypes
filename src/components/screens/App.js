@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CreatedVsResolved from "../charts/CreatedVsResolved";
+import Velocity from "../charts/Velocity";
 
 const styles = {
   title: {
@@ -13,6 +14,7 @@ class App extends Component {
       <div>
         <h2 style={styles.title}>Charts</h2>
         <CreatedVsResolved />
+        <Velocity />
       </div>
     );
   }
