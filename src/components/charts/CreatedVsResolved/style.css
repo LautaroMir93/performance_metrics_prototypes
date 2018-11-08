@@ -1,0 +1,18 @@
+.createdVsResolved
+  > .recharts-wrapper
+  > .recharts-surface
+  > .xAxis
+  > .recharts-cartesian-axis-ticks
+  > g {
+  display: none;
+}
+
+.createdVsResolved
+  > .recharts-wrapper
+  > .recharts-surface
+  > .xAxis
+  > .recharts-cartesian-axis-ticks
+  > g:last-child,
+g:first-child {
+  display: block !important;
+}
